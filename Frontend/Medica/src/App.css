@@ -1,4 +1,81 @@
-.im{
-  width: 50%;
-  height: 50%;
+/* Dashboard.css */
+*{
+  width: 100%;;
+}
+body, html {
+  margin: 0;
+  padding: 0;
+
+  box-sizing: border-box;
+  font-family: sans-serif;
+}
+
+.dashboard {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+.d-flex{
+  width:150px;
+  
+}
+/* Hero Section Full Width */
+.hero {
+  width: 100%;
+  padding: 4rem 2rem;
+  background: linear-gradient(to right, #e3f2fd, #ffffff);
+  text-align: center;
+}
+
+/* Search Bar */
+.search-bar {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.search-bar input{
+  
+    width: 200px;
+    padding: 1rem;
+    font-size: 1rem;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+  }
+
+.search-bar button {
+  width: 50px;
+  padding: 1rem;
+  font-size: 1rem;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+}
+
+/* Specialties */
+.specialties {
+  padding: 4rem 2rem;
+  background-color: #fff;
+  text-align: center;
+}
+
+.icon-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.icon-card {
+  width: 120px;
+  height: 120px;
+  background-color: #e0f7fa;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
 }
