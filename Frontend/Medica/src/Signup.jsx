@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { callApi } from './api'; // Make sure the path is correct
 import './Signup.css';
 
 export default function Signup() {
@@ -18,18 +19,45 @@ export default function Signup() {
   const handleSubmit = (e) => {
     e.preventDefault();
 
+    // Basic validation
+    if (!form.email || !form.username || !form.password || !form.confirmPassword || !form.role) {
+      alert("All fields are required.");
+      return;
+    }
+
     if (form.password !== form.confirmPassword) {
       alert("Passwords do not match!");
       return;
     }
 
-    console.log('Signup form submitted:', form);
-    // Add API integration here
+    const data = JSON.stringify({
+      fullname: form.username,
+      email: form.email,
+      password: form.password,
+      role: form.role,
+    });
+
+    callApi("POST", "http://localhost:9060/users/signup", data, handleApiResponse);
+  };
+
+  const handleApiResponse = (res) => {
+    const result = res.split("::");
+    alert(result[1]);
+    if (result[0] === "200") {
+      setForm({
+        email: '',
+        username: '',
+        password: '',
+        confirmPassword: '',
+        role: '',
+      });
+      // Optional: redirect to login page
+      // window.location.href = "/signin";
+    }
   };
 
   return (
     <div className="signup-container">
-      {/* Left Side */}
       <div className="signup-left">
         <div className="logo">📅 Medica</div>
         <div className="signup-box">
@@ -63,8 +91,9 @@ export default function Signup() {
                   type="radio"
                   name="role"
                   value="user"
+                  checked={form.role === 'user'}
                   onChange={handleChange}
-                />{' '}
+                />
                 <span>User</span>
               </label>
               <label>
@@ -72,8 +101,9 @@ export default function Signup() {
                   type="radio"
                   name="role"
                   value="admin"
+                  checked={form.role === 'admin'}
                   onChange={handleChange}
-                />{' '}
+                />
                 <span>Admin</span>
               </label>
             </div>

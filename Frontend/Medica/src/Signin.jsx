@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import './Signin.css';
+import { callApi, setSession } from './api'; // ✅ Import API helpers
 
 export default function Signin() {
   const navigate = useNavigate();
@@ -17,16 +18,29 @@ export default function Signin() {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    // Placeholder authentication logic
-    console.log('Signin form submitted:', form);
+    // Validate form input
+    if (!form.username || !form.password) {
+      alert('All fields are required!');
+      return;
+    }
 
-    // Example condition to simulate login success
-    if (form.username === 'admin' && form.password === 'admin') {
+    const data = JSON.stringify({
+      email: form.username,
+      password: form.password,
+    });
+
+    callApi('POST', 'http://localhost:8070/users/signin', data, handleResponse);
+  };
+
+  const handleResponse = (res) => {
+    const rdata = res.split('::');
+
+    if (rdata[0] === '200') {
+      setSession('csrid', rdata[1], 1); // Save session
       alert('Login successful!');
-      // Navigate to dashboard or home page
-      navigate('/dashboard'); 
+      navigate('/dashboard'); // Redirect to dashboard
     } else {
-      alert('Invalid credentials. Please try again.');
+      alert(rdata[1]); // Show error from server
     }
   };
 
