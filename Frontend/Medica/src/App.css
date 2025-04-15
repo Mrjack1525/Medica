@@ -26,6 +26,15 @@ body, html {
   background: linear-gradient(to right, #e3f2fd, #ffffff);
   text-align: center;
 }
+<<<<<<< HEAD
+=======
+.navbar-brand{
+  margin-left: -50px;
+}
+.navbar-brand span {
+  margin-left: -7px;
+}
+>>>>>>> 75799d8 (final commit)
 
 /* Search Bar */
 .search-bar {

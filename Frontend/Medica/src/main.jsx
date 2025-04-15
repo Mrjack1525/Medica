@@ -7,6 +7,10 @@ import Patient from './Patient.jsx'
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     {/* <App /> */}
+<<<<<<< HEAD
     <Patient/>
+=======
+    <App/>
+>>>>>>> 75799d8 (final commit)
   </StrictMode>,
 )

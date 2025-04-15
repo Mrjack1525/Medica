@@ -25,20 +25,40 @@ export default function Signin() {
     }
 
     const data = JSON.stringify({
+<<<<<<< HEAD
       email: form.username,
       password: form.password,
     });
 
     callApi('POST', 'http://localhost:8070/users/signin', data, handleResponse);
+=======
+      username: form.username,
+      password: form.password,
+    });
+
+    callApi('POST', 'http://localhost:6090/users/signin', data, handleResponse);
+>>>>>>> 75799d8 (final commit)
   };
 
   const handleResponse = (res) => {
     const rdata = res.split('::');
 
     if (rdata[0] === '200') {
+<<<<<<< HEAD
       setSession('csrid', rdata[1], 1); // Save session
       alert('Login successful!');
       navigate('/dashboard'); // Redirect to dashboard
+=======
+      setSession('csr', rdata[1], 1); // Save session
+      alert('Login successful!');
+      alert(rdata[2]); // Show user role
+      if(rdata[2] === 'admin') {
+        navigate('/admin'); // Redirect to admin dashboard
+      }
+      else {
+      navigate('/patient');
+      } // Redirect to dashboard
+>>>>>>> 75799d8 (final commit)
     } else {
       alert(rdata[1]); // Show error from server
     }

@@ -31,13 +31,21 @@ export default function Signup() {
     }
 
     const data = JSON.stringify({
+<<<<<<< HEAD
+=======
+      username: form.username,
+>>>>>>> 75799d8 (final commit)
       fullname: form.username,
       email: form.email,
       password: form.password,
       role: form.role,
     });
 
+<<<<<<< HEAD
     callApi("POST", "http://localhost:9060/users/signup", data, handleApiResponse);
+=======
+    callApi("POST", "http://localhost:6090/users/signup", data, handleApiResponse);
+>>>>>>> 75799d8 (final commit)
   };
 
   const handleApiResponse = (res) => {

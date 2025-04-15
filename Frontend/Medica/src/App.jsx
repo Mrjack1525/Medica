@@ -4,6 +4,12 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 import Signup from "./Signup";
 import Signin from "./Signin";
+<<<<<<< HEAD
+=======
+import Patient from "./Patient";
+import AdminDashboard from "./Admin";
+import Doctors from "./Doctors";
+>>>>>>> 75799d8 (final commit)
 
 const HomePage = () => {
   const navigate = useNavigate();
@@ -14,6 +20,10 @@ const HomePage = () => {
       <header className="navbar navbar-expand-lg bg-body-tertiary">
         <div className="container-fluid">
           <a className="navbar-brand" href="#">
+<<<<<<< HEAD
+=======
+            🏥
+>>>>>>> 75799d8 (final commit)
             Med<span style={{ color: "#00bcd4" }}>ica</span>
           </a>
           <button
@@ -120,6 +130,12 @@ const App = () => {
     <Router>
       <Routes>
         <Route path="/" element={<HomePage />} />
+<<<<<<< HEAD
+=======
+        <Route path="/admin" element={<AdminDashboard />} />
+         <Route path="/doctor" element={<Doctors />} /> 
+        <Route path="/patient" element={<Patient />} />
+>>>>>>> 75799d8 (final commit)
         <Route path="/signup" element={<Signup />} />
         <Route path="/signin" element={<Signin />} />
       </Routes>
